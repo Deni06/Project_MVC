@@ -10,7 +10,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class login extends javax.swing.JFrame {
 
-    private String user;
+    public static String user;
 
     /**
      * Creates new form login
@@ -43,20 +45,26 @@ public class login extends javax.swing.JFrame {
         btnSignUp = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         SignIn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 24)); // NOI18N
         jLabel1.setText("Username");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 41, -1, -1));
 
         txtnama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnamaActionPerformed(evt);
             }
         });
+        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 81, 178, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 24)); // NOI18N
         jLabel2.setText("Password");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 112, -1, -1));
+        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 159, 178, -1));
 
         btnSignUp.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         btnSignUp.setText("Sign Up");
@@ -65,6 +73,7 @@ public class login extends javax.swing.JFrame {
                 btnSignUpActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 234, -1, -1));
 
         btnExit.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         btnExit.setText("Exit");
@@ -73,6 +82,7 @@ public class login extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 234, 83, -1));
 
         SignIn.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         SignIn.setText("Sign In");
@@ -81,51 +91,10 @@ public class login extends javax.swing.JFrame {
                 SignInActionPerformed(evt);
             }
         });
+        getContentPane().add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 197, 178, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtpass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel2)))
-                .addContainerGap(114, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(SignIn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSignUp)
-                    .addComponent(btnExit))
-                .addGap(23, 23, 23))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon("F:\\jakiro.jpg")); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,11 +105,22 @@ public class login extends javax.swing.JFrame {
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
+         String username = txtnama.getText();
+        String password = txtpass.getText();
+
+        try {
+            try (Statement statement = (Statement) file_koneksi.GetConnection().createStatement()) {
+                statement.executeUpdate("insert into tb_akun(username, password) VALUES ('"+username+"','"+password+"');");
+            }
+            JOptionPane.showMessageDialog(null,"Selamat! anda berhasil sign up!");
+        }catch (Exception t) {
+            JOptionPane.showMessageDialog(null,"Mohon maaf, ulangi lagi prosedur");
+        }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
@@ -167,7 +147,9 @@ txtnama.requestFocus();
 JOptionPane.showMessageDialog(rootPane,"Gagal!");
 }
     }//GEN-LAST:event_SignInActionPerformed
-
+public JTextField getUser(){ 
+        return txtnama;
+    }
     /**
      * @param args the command line arguments
      */
@@ -209,6 +191,7 @@ JOptionPane.showMessageDialog(rootPane,"Gagal!");
     private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtnama;
     private javax.swing.JPasswordField txtpass;
     // End of variables declaration//GEN-END:variables

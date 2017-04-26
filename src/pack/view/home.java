@@ -34,6 +34,8 @@ public class home extends javax.swing.JFrame {
         initComponents();
         ctoko = new controllerToko (this);
         ctoko.isiTable();
+        getCbKategori().setSelectedItem(null);
+        getCbJenis().setSelectedItem(null);
     }
 
     /**
@@ -48,7 +50,7 @@ public class home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField = new javax.swing.JLabel();
+        txtadmin = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtkode = new javax.swing.JTextField();
@@ -68,16 +70,15 @@ public class home extends javax.swing.JFrame {
         Btn_Hapus = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         CbCariKategori = new javax.swing.JComboBox<>();
-        jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabel1 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
         Btn_Cari = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
         jLabel1.setFont(new java.awt.Font("JasmineUPC", 1, 48)); // NOI18N
         jLabel1.setText("Data Barang di Toko");
@@ -85,8 +86,8 @@ public class home extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("JasmineUPC", 1, 18)); // NOI18N
         jLabel2.setText("Admin Toko :");
 
-        jTextField.setFont(new java.awt.Font("JasmineUPC", 1, 24)); // NOI18N
-        jTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtadmin.setFont(new java.awt.Font("JasmineUPC", 1, 24)); // NOI18N
+        txtadmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,12 +97,12 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(492, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(242, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(185, 185, 185))
+                .addGap(168, 168, 168))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,15 +110,15 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 735, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 80));
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("KaiTi", 1, 14)); // NOI18N
@@ -133,24 +134,24 @@ public class home extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("KaiTi", 1, 14)); // NOI18N
         jLabel5.setText("Nama Barang");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 50, -1, -1));
-        jPanel2.add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 49, 240, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        jPanel2.add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 240, -1));
 
         jLabel6.setFont(new java.awt.Font("KaiTi", 1, 14)); // NOI18N
         jLabel6.setText("Kategori Barang");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 88, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("KaiTi", 1, 14)); // NOI18N
         jLabel7.setText("Jenis Packaging");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 126, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         cbjenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pack", " " }));
-        jPanel2.add(cbjenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 125, 238, -1));
+        jPanel2.add(cbjenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 238, -1));
 
         jLabel8.setFont(new java.awt.Font("KaiTi", 1, 14)); // NOI18N
         jLabel8.setText("Harga");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 165, -1, -1));
-        jPanel2.add(txtharga, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 164, 238, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel2.add(txtharga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 238, -1));
 
         cbKategoriBrg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Makanan", "Baranglain", " " }));
         cbKategoriBrg.addActionListener(new java.awt.event.ActionListener() {
@@ -158,11 +159,11 @@ public class home extends javax.swing.JFrame {
                 cbKategoriBrgActionPerformed(evt);
             }
         });
-        jPanel2.add(cbKategoriBrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 87, 238, -1));
+        jPanel2.add(cbKategoriBrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 238, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 500, 230));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 510, 230));
 
-        jPanel3.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(102, 255, 102));
 
         Btn_Simpan.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         Btn_Simpan.setText("Simpan");
@@ -213,7 +214,7 @@ public class home extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Btn_Ubah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Btn_Simpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Btn_Bersih, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(Btn_Bersih, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(Btn_Keluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Btn_Hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -223,20 +224,20 @@ public class home extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Btn_Simpan)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addComponent(Btn_Ubah)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Btn_Bersih)
                 .addGap(18, 18, 18)
                 .addComponent(Btn_Hapus)
                 .addGap(18, 18, 18)
                 .addComponent(Btn_Keluar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 120, 240));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 170, 230));
 
-        jLabel9.setFont(new java.awt.Font("Yu Gothic", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel9.setText("Pencarian Berdasarkan Kategori Makanan");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
@@ -246,9 +247,7 @@ public class home extends javax.swing.JFrame {
                 CbCariKategoriActionPerformed(evt);
             }
         });
-        getContentPane().add(CbCariKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 110, -1));
-
-        jPanel5.setBackground(new java.awt.Color(51, 255, 51));
+        getContentPane().add(CbCariKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 110, -1));
 
         Tabel1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -261,40 +260,14 @@ public class home extends javax.swing.JFrame {
                 "Kode Barang", "Nama Barang", "Kategori", "Packaging", "Harga"
             }
         ));
+        Tabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabel1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tabel1);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 500, 180));
-
-        jPanel4.setBackground(new java.awt.Color(0, 255, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 120, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 646, 170));
 
         Btn_Cari.setFont(new java.awt.Font("Shonar Bangla", 1, 18)); // NOI18N
         Btn_Cari.setText("Cari");
@@ -303,7 +276,10 @@ public class home extends javax.swing.JFrame {
                 Btn_CariActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 70, 30));
+        getContentPane().add(Btn_Cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, 25));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("F:\\axe.jpg")); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 680, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -321,14 +297,16 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         ctoko.SimpanData();
         ctoko.isiTable();
+        ctoko.Reset();
     }//GEN-LAST:event_Btn_SimpanActionPerformed
 
     private void Btn_HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HapusActionPerformed
         // TODO add your handling code here:
         ctoko.Hapus();
         ctoko.isiTable();
+        ctoko.Reset();
     }//GEN-LAST:event_Btn_HapusActionPerformed
-
+    
     private void Btn_KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_KeluarActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -337,7 +315,6 @@ public class home extends javax.swing.JFrame {
     private void Btn_CariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CariActionPerformed
         // TODO add your handling code here:
         ctoko.CariKategori();
-        ctoko.isiTable();
     }//GEN-LAST:event_Btn_CariActionPerformed
 
     private void CbCariKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbCariKategoriActionPerformed
@@ -352,7 +329,26 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         ctoko.Ubah();
         ctoko.isiTable();
+        ctoko.Reset();
     }//GEN-LAST:event_Btn_UbahActionPerformed
+    public void setAdmin (String admin) {
+        txtadmin.setText(admin);
+    }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+        String user = login.user;
+        txtadmin.setText(" "+user);
+    }
+    private void Tabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabel1MouseClicked
+        // TODO add your handling code here:
+        int baris = Tabel1.getSelectedRow();
+        if(baris != -1){
+            txtkode.setText(Tabel1.getValueAt(baris, 0).toString());
+            txtnama.setText((String) Tabel1.getValueAt(baris, 1));
+            cbKategoriBrg.setSelectedItem(Tabel1.getValueAt(baris, 2));
+            cbjenis.setSelectedItem(Tabel1.getValueAt(baris, 3));
+            txtharga.setText(Tabel1.getValueAt(baris, 4).toString());
+        }
+    }//GEN-LAST:event_Tabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -439,6 +435,7 @@ return Tabel1;
     private javax.swing.JComboBox<String> cbKategoriBrg;
     private javax.swing.JComboBox<String> cbjenis;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -449,10 +446,8 @@ return Tabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel jTextField;
+    private javax.swing.JLabel txtadmin;
     private javax.swing.JTextField txtharga;
     private javax.swing.JTextField txtkode;
     private javax.swing.JTextField txtnama;

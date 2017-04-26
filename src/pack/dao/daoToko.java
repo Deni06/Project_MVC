@@ -24,7 +24,7 @@ Connection connection;
 public String TampilData = "SELECT * FROM `barang`";
 public String UbahData = "UPDATE `barang` SET `Nama_Barang`=?, `Harga`=?, `Kategori`=?, `Jenis`=? Where`Kode_Barang`=?;";
 public String SimpanData = "INSERT INTO `barang` VALUES (?, ?, ?, ?, ?)";
-public String HapusData = "DELETE FROM `barang`";
+public String HapusData = "DELETE FROM `barang` WHERE Kode_Barang=?";
 public String CariKategori = "SELECT `Kode_Barang`,`Nama_Barang`, `Kategori`, `Jenis`, `Harga` FROM `barang`WHERE Kategori like ?";
 public daoToko(){
 connection = c_koneksi.setKoneksi();
@@ -37,11 +37,11 @@ public void UbahData(m_toko a) {
 PreparedStatement statement = null;
 try {
 statement = connection.prepareStatement(UbahData);
-statement.setString(1, a.getkode());
-statement.setString(2, a.getnama());
+statement.setString(5, a.getkode());
+statement.setString(1, a.getnama());
+statement.setString(2, a.getharga());
 statement.setString(3, a.getkategori());
 statement.setString(4, a.getjenis());
-statement.setString(5, a.getharga());
 statement.executeUpdate();
 } catch (SQLException ex) {
 Logger.getLogger(daoToko.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,8 +72,7 @@ public List<m_toko> getCariKategori(String kategori) {
 List<m_toko> lt=null;
 try {
 lt = new ArrayList<m_toko>();
-PreparedStatement
-st=connection.prepareStatement(CariKategori);
+PreparedStatement st=connection.prepareStatement(CariKategori);
 st.setString(1, "%"+kategori+"%");
 ResultSet rs = st.executeQuery();
 while (rs.next()){
